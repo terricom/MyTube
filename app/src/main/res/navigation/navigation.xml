@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.terricom.mytube.home.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/timerFragment"
+        android:name="com.terricom.mytube.timer.TimerFragment"
+        android:label="TimerFragment" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.terricom.mytube.setting.SettingFragment"
+        android:label="SettingFragment" />
+
+    <action android:id="@+id/action_global_homeFragment" app:destination="@id/homeFragment"
+        app:popUpTo="@+id/homeFragment" app:popUpToInclusive="true"/>
+
+    <action android:id="@+id/action_global_timerFragment" app:destination="@id/timerFragment"
+        app:popUpTo="@+id/timerFragment" app:popUpToInclusive="true"/>
+
+    <action android:id="@+id/action_global_settingFragment" app:destination="@id/settingFragment"
+        app:popUpTo="@+id/settingFragment" app:popUpToInclusive="true"/>
+</navigation>
