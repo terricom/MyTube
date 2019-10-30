@@ -31,8 +31,9 @@ private val retrofit = Retrofit.Builder()
 
 interface RetrofitApiService{
 
+    @FormUrlEncoded
     @POST("appQuiz")
-    fun getFilmAsync( @Body submit: Submit) :
+    fun getFilmAsync(@Field ("key") key: String = "VoiceTube") :
             Deferred<TestResponse>
 }
 

@@ -1,8 +1,11 @@
 package com.terricom.mytube.home
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.terricom.mytube.data.Submit
+import com.terricom.mytube.data.Video
 import com.terricom.mytube.internet.RetrofitApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,6 +18,10 @@ class HomeViewModel: ViewModel() {
 
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
+    private val _videoList = MutableLiveData<List<Video>>()
+    val videoList : LiveData<List<Video>>
+        get() = _videoList
+
     init {
         getFilm()
     }
@@ -24,11 +31,11 @@ class HomeViewModel: ViewModel() {
         coroutineScope.launch {
 
             var getPropertiesDeferred = RetrofitApi
-                .retrofitService.getFilmAsync(Submit())
+                .retrofitService.getFilmAsync()
 
             try {
-                Log.i("Demo", "getPropertiesDeferred = $getPropertiesDeferred")
                 val cataloglistResult = getPropertiesDeferred.await()
+                _videoList.value = cataloglistResult.videos
 
             } catch (e: Exception) {
                 Log.i("Demo", "exception=${e.message}")

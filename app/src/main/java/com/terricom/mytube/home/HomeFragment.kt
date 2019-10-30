@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.terricom.mytube.databinding.FragmentHomeBinding
 
@@ -18,8 +19,15 @@ class HomeFragment: Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         val binding = FragmentHomeBinding.inflate (inflater)
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
         binding.viewModel = viewModel
+
+        binding.recyclerVideo.adapter = VideoAdapter(viewModel)
+
+        viewModel.videoList.observe(this, Observer {
+            (binding.recyclerVideo.adapter as VideoAdapter).submitList(it)
+        })
+
 
         return binding.root
     }
