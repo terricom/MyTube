@@ -3,4 +3,9 @@
     <string name="title_setting">Setting</string>
     <string name="title_timer">Timer</string>
     <string name="title_home">MyTube</string>
+    <string name="setting_auto_play">自動播放</string>
+    <string name="setting_subtitle">字幕同步</string>
+    <string name="setting_pause_when">查詢單字時暫停播放</string>
+    <string name="setting_recommended">推薦影片提醒</string>
+    <string name="setting_learning">學習通知</string>
 </resources>

@@ -5,6 +5,9 @@
         <variable
             name="viewModel"
             type="com.terricom.mytube.setting.SettingViewModel" />
+        <variable
+            name="fragment"
+            type="com.terricom.mytube.setting.SettingFragment" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:orientation="vertical" android:layout_width="match_parent"
@@ -15,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="自動播放"
+        android:text="@string/setting_auto_play"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/switch_auto_play"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,6 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
+        app:switchChecked="@{viewModel.ifAutoPlay.booleanValue()}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="字幕同步"
+        android:text="@string/setting_subtitle"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/switch_subtitle"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,6 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
+        app:switchChecked="@{viewModel.ifSubtitle.booleanValue()}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switch_auto_play" />
 
@@ -55,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="查詢單字時暫停播放"
+        android:text="@string/setting_pause_when"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/switch_pause_when"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,6 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
+        app:switchChecked="@{viewModel.ifPauseWhen.booleanValue()}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switch_subtitle" />
 
@@ -75,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="推薦影片提醒"
+        android:text="@string/setting_recommended"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/switch_recommended"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,6 +93,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
+        app:switchChecked="@{viewModel.ifRecommended.booleanValue()}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switch_pause_when" />
 
@@ -95,7 +102,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="學習通知"
+        android:text="@string/setting_learning"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/switch_learning"
         app:layout_constraintStart_toStartOf="parent"
@@ -107,6 +114,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
+        app:switchChecked="@{viewModel.ifLearning.booleanValue()}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switch_recommended" />
 </androidx.constraintlayout.widget.ConstraintLayout>
