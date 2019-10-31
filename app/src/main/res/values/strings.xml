@@ -8,4 +8,8 @@
     <string name="setting_pause_when">查詢單字時暫停播放</string>
     <string name="setting_recommended">推薦影片提醒</string>
     <string name="setting_learning">學習通知</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="timer_on_resume">RESUME</string>
+    <string name="timer_on_start">START</string>
+    <string name="timer_on_pause">PAUSE</string>
 </resources>
