@@ -77,4 +77,7 @@ dependencies {
     implementation "androidx.fragment:fragment:$version_fragment"
     implementation "androidx.fragment:fragment-testing:$version_fragment"
 
+    //Gson
+    implementation 'com.google.code.gson:gson:2.8.5'
+
 }

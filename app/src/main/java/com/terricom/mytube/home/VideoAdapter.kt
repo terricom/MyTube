@@ -14,7 +14,6 @@ import com.terricom.mytube.MyTubeApp
 import com.terricom.mytube.R
 import com.terricom.mytube.data.Video
 import com.terricom.mytube.databinding.ItemVideoBinding
-import com.terricom.mytube.getBitmapFromMemCache
 
 class VideoAdapter(
 
@@ -79,7 +78,6 @@ class VideoAdapter(
 
         val task = BitmapWorkerTask(holder.binding.videoImage, product.img)
         task.execute()
-        holder.binding.videoImage.setImageBitmap(getBitmapFromMemCache(product.img))
 
         holder.bind(product)
     }

@@ -4,7 +4,9 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.gson.Gson
 import com.terricom.mytube.data.Submit
+import com.terricom.mytube.data.UserManager
 import com.terricom.mytube.data.Video
 import com.terricom.mytube.internet.RetrofitApi
 import kotlinx.coroutines.CoroutineScope
@@ -36,6 +38,9 @@ class HomeViewModel: ViewModel() {
             try {
                 val cataloglistResult = getPropertiesDeferred.await()
                 _videoList.value = cataloglistResult.videos
+
+                var gsonString = Gson().toJson(cataloglistResult.videos)
+                UserManager.videoList = gsonString
 
             } catch (e: Exception) {
                 Log.i("Demo", "exception=${e.message}")

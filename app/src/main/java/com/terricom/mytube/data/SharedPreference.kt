@@ -1,11 +1,13 @@
 package com.terricom.mytube.data
 
+import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.util.Log
+import com.google.gson.Gson
 import com.terricom.mytube.MyTubeApp
+import org.json.JSONObject
 
-private inline fun SharedPreferences.edit(operation:
-                                              (SharedPreferences.Editor) -> Unit) {
+private inline fun SharedPreferences.edit(operation: (SharedPreferences.Editor) -> Unit) {
     val editor = edit()
     operation(editor)
     editor.apply()
@@ -15,7 +17,6 @@ private inline fun SharedPreferences.edit(operation:
 object UserManager {
 
     var prefs : SharedPreferences? = MyTubeApp.instance?.getSharedPreferences("token", 0)
-
 
     var ifAutoPlay: Boolean? = null
         get() {
@@ -56,6 +57,14 @@ object UserManager {
         }
         set(value) {
             field = prefs?.edit()?.putBoolean("learning", value!!)?.commit()
+        }
+
+    var videoList: String? = null
+        get() {
+            return prefs?.getString("videoList", "")
+        }
+        set(value) {
+            field = prefs?.edit()?.putString("videoList", value!!)?.apply().toString()
         }
 
 }

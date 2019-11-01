@@ -11,3 +11,7 @@ data class Video (
     @Json(name = "title") val title: String,
     @Json(name = "img") val img: String
 )
+
+data class Videos (
+    @Json(name = "videos") val videos: List<Video>
+)
